@@ -1,0 +1,132 @@
+{
+  "resources": [
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-prod/providers/Microsoft.Compute/virtualMachines/vm-web01",
+      "name": "vm-web01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "resourceGroup": "rg-prod",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001", "Owner": "team-web", "Application": "storefront"},
+      "sku": "Standard_D4s_v5",
+      "monthly_cost_usd": 210.50,
+      "metrics": {"avg_cpu_percent_14d": 2.8, "max_cpu_percent_14d": 9.5, "avg_cpu_percent_30d": 3.1, "network_bytes_30d": 2500000, "power_state": "running", "uptime_ratio_30d": 0.98},
+      "properties": {"licenseType": "None", "osType": "Windows", "eligible_licenses_available": true, "pricing_model": "payg", "reservation_or_savings_plan_covered": false}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-dev/providers/Microsoft.Compute/virtualMachines/vm-test-legacy",
+      "name": "vm-test-legacy",
+      "type": "Microsoft.Compute/virtualMachines",
+      "resourceGroup": "rg-dev",
+      "location": "westus2",
+      "tags": {"Environment": "dev"},
+      "sku": "Standard_B4ms",
+      "monthly_cost_usd": 96.00,
+      "metrics": {"avg_cpu_percent_30d": 0.4, "network_bytes_30d": 12000, "power_state": "running"},
+      "properties": {"auto_shutdown_configured": false}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-prod/providers/Microsoft.Compute/disks/disk-orphan-01",
+      "name": "disk-orphan-01",
+      "type": "Microsoft.Compute/disks",
+      "resourceGroup": "rg-prod",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001"},
+      "sku": "Premium_LRS",
+      "monthly_cost_usd": 38.00,
+      "properties": {"diskState": "Unattached", "days_unattached": 45}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-prod/providers/Microsoft.Compute/disks/disk-oversized-02",
+      "name": "disk-oversized-02",
+      "type": "Microsoft.Compute/disks",
+      "resourceGroup": "rg-prod",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001", "Owner": "team-data", "Application": "warehouse"},
+      "sku": "Premium_LRS",
+      "monthly_cost_usd": 154.00,
+      "metrics": {"avg_iops_30d": 90},
+      "properties": {"provisioned_iops": 5000}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-net/providers/Microsoft.Network/publicIPAddresses/pip-unused-01",
+      "name": "pip-unused-01",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "resourceGroup": "rg-net",
+      "location": "eastus",
+      "tags": {},
+      "sku": "Standard",
+      "monthly_cost_usd": 3.65,
+      "properties": {"ipConfiguration": null}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-prod/providers/Microsoft.Storage/storageAccounts/stcoldata001",
+      "name": "stcoldata001",
+      "type": "Microsoft.Storage/storageAccounts",
+      "resourceGroup": "rg-prod",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001", "Owner": "team-data", "Application": "warehouse", "DataCriticality": "low"},
+      "sku": "Standard_GRS",
+      "monthly_cost_usd": 610.00,
+      "properties": {"lifecycle_policy_configured": false, "hot_tier_bytes_not_accessed_30d": 4500000000000}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-web/providers/Microsoft.Web/serverfarms/asp-web-prod",
+      "name": "asp-web-prod",
+      "type": "Microsoft.Web/serverfarms",
+      "resourceGroup": "rg-web",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001", "Owner": "team-web", "Application": "storefront"},
+      "sku": "P2v3",
+      "monthly_cost_usd": 292.00,
+      "metrics": {"avg_cpu_percent_14d": 8.5},
+      "properties": {"instance_count": 4, "autoscale_configured": false}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-data/providers/Microsoft.Sql/servers/sql-prod01/databases/salesdb",
+      "name": "salesdb",
+      "type": "Microsoft.Sql/servers/databases",
+      "resourceGroup": "rg-data",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1002", "Owner": "team-data", "Application": "sales"},
+      "sku": "GP_Gen5_8",
+      "monthly_cost_usd": 875.00,
+      "metrics": {"avg_dtu_or_ru_utilization_percent_14d": 14},
+      "properties": {"licenseType": "LicenseIncluded", "osType": "SQLServer", "eligible_licenses_available": true}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-net/providers/Microsoft.Network/bastionHosts/bastion-hub",
+      "name": "bastion-hub",
+      "type": "Microsoft.Network/bastionHosts",
+      "resourceGroup": "rg-net",
+      "location": "eastus",
+      "tags": {"Environment": "shared"},
+      "sku": "Standard",
+      "monthly_cost_usd": 140.00,
+      "metrics": {"session_count_30d": 0}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-monitor/providers/Microsoft.OperationalInsights/workspaces/law-central",
+      "name": "law-central",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "resourceGroup": "rg-monitor",
+      "location": "eastus",
+      "tags": {"Environment": "shared", "CostCenter": "1000", "Owner": "team-platform", "Application": "observability"},
+      "sku": "PerGB2018",
+      "monthly_cost_usd": 4200.00,
+      "metrics": {"avg_daily_ingestion_gb_30d": 135, "activity_events_30d": 980000},
+      "properties": {"pricing_tier": "PerGB2018"}
+    },
+    {
+      "id": "/subscriptions/sub1/resourceGroups/rg-prod/providers/Microsoft.Compute/virtualMachineScaleSets/vmss-api",
+      "name": "vmss-api",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "resourceGroup": "rg-prod",
+      "location": "eastus",
+      "tags": {"Environment": "prod", "CostCenter": "1001", "Owner": "team-api", "Application": "api-gateway"},
+      "sku": "Standard_D2s_v5",
+      "monthly_cost_usd": 640.00,
+      "metrics": {"cpu_std_dev_14d": 27, "uptime_ratio_30d": 0.99},
+      "properties": {"autoscale_profile_configured": false, "pricing_model": "payg", "reservation_or_savings_plan_covered": false}
+    }
+  ]
+}

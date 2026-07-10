@@ -1,0 +1,6 @@
+{
+  "name": "trivy-scanner",
+  "description": "Standalone Trivy security scanning for container images, filesystems, Git repositories, IaC/config, Kubernetes, SBOM, and VM images — finding vulnerabilities (CVEs), misconfigurations, secrets, and license issues.",
+  "license": "Apache-2.0",
+  "skills": ["skills/"]
+}

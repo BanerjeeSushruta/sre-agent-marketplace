@@ -1,0 +1,6 @@
+{
+  "name": "finops",
+  "description": "Standalone Azure FinOps best practices validator for Azure SRE Agent. It performs subscription, management group, resource group, workload, and resource-level assessments to validate Azure environments against Microsoft FinOps best practices. The skill analyzes cost visibility, resource utilization, governance controls, budgeting, tagging compliance, Azure Advisor recommendations, reservations, savings plans, Azure Hybrid Benefit opportunities, and sustainability metrics to identify waste, optimize cloud spend, and improve financial accountability.",
+  "license": "MIT",
+  "skills": ["skills/"]
+}

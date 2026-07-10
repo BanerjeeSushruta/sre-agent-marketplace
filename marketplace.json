@@ -1,0 +1,32 @@
+{
+  "name": "sre-agent-marketplace",
+  "owner": {
+    "name": "CognizantCIS"
+  },
+  "metadata": {
+    "description": "Security-focused plugin marketplace for Azure SRE Agent. Bundles operational security skills for MCP hardening (OWASP MCP Top 10) and Azure Cloud Security Posture Management (CSPM) remediation.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "mcp-owasp-top10",
+      "description": "Azure security guidance for the OWASP MCP Top 10. Provides investigation and hardening runbooks for securing Model Context Protocol (MCP) servers on Azure, covering token management, authorization, tool poisoning, prompt/intent-flow injection, telemetry, and shadow servers. Based on microsoft/mcp-azure-security-guide.",
+      "source": "./plugins/mcp-owasp-top10"
+    },
+    {
+      "name": "openshield-cspm-remediation",
+      "description": "Azure CSPM remediation runbooks derived from OpenShield's scanner rules and Azure CLI playbooks. Covers storage, network, identity, database, compute, Key Vault, and post-quantum cryptography misconfigurations, mapped to CIS, NIST CSF, ISO 27001, and SOC 2. Based on openshield-org/openshield.",
+      "source": "./plugins/openshield-cspm-remediation"
+    },
+    {
+      "name": "trivy-scanner",
+      "description": "Standalone Trivy security scanning for container images, filesystems, Git repositories, IaC/config, Kubernetes, SBOM, and VM images — finding vulnerabilities (CVEs), misconfigurations, secrets, and license issues. Runs as a self-contained binary with no server required. Based on aquasecurity/trivy.",
+      "source": "./plugins/trivy-scanner"
+    },
+    {
+      "name": "finops",
+      "description": "Standalone Azure FinOps best practices validator. It performs subscription, management group, resource group, workload, and resource-level assessments to validate Azure environments against Microsoft FinOps best practices. The skill analyzes cost visibility, resource utilization, governance controls, budgeting, tagging compliance, Azure Advisor recommendations, reservations, savings plans, Azure Hybrid Benefit opportunities, and sustainability metrics to identify waste, optimize cloud spend, and improve financial accountability.",
+      "source": "./plugins/finops"
+    }
+  ]
+}

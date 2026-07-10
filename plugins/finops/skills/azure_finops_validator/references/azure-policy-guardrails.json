@@ -1,0 +1,98 @@
+{
+  "description": "Cost-saving guardrails to prevent recurrence of FinOps findings, expressed as Azure Policy suggestions. 'policy_definition_id' is the built-in definition GUID under /providers/Microsoft.Authorization/policyDefinitions/ where one exists; entries marked 'custom' need a custom definition (starter logic in 'custom_policy_hint'). Assign at management-group or subscription scope; start with Audit effects, move to Deny/Modify once exemptions are understood.",
+  "guardrails": [
+    {
+      "guardrail_id": "AZPG-01",
+      "title": "Require cost-allocation tags on resource groups",
+      "related_rules": ["AZFO-016"],
+      "policy": "Require a tag on resource groups (built-in)",
+      "policy_definition_id": "96670d01-0a4d-4649-9c89-2d3abc0a5025",
+      "effect": "Deny",
+      "notes": "Assign once per required tag (CostCenter, Owner, Environment, Application). Blocks untraceable spend at creation time."
+    },
+    {
+      "guardrail_id": "AZPG-02",
+      "title": "Inherit cost-allocation tags from resource group",
+      "related_rules": ["AZFO-016"],
+      "policy": "Inherit a tag from the resource group if missing (built-in)",
+      "policy_definition_id": "ea3f2387-9b95-492a-a190-fcdc54f7b070",
+      "effect": "Modify",
+      "notes": "Auto-remediates missing tags on child resources so cost reports stay complete without developer friction. Needs a managed identity on the assignment for remediation."
+    },
+    {
+      "guardrail_id": "AZPG-03",
+      "title": "Restrict VM sizes to an approved, cost-vetted list",
+      "related_rules": ["AZFO-001", "AZFO-014"],
+      "policy": "Allowed virtual machine size SKUs (built-in)",
+      "policy_definition_id": "cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+      "effect": "Deny",
+      "notes": "Prevents oversized/GPU/premium SKUs outside approved families. Maintain separate allowed lists per environment (dev lists exclude production-class SKUs)."
+    },
+    {
+      "guardrail_id": "AZPG-04",
+      "title": "Restrict deployments to approved (lower-cost) regions",
+      "related_rules": [],
+      "policy": "Allowed locations (built-in)",
+      "policy_definition_id": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+      "effect": "Deny",
+      "notes": "Region price differences of 10-30% are common; also reduces egress by keeping workloads co-located."
+    },
+    {
+      "guardrail_id": "AZPG-05",
+      "title": "Block expensive or unsanctioned resource types",
+      "related_rules": ["AZFO-023", "AZFO-024"],
+      "policy": "Not allowed resource types (built-in)",
+      "policy_definition_id": "6c112d4e-5bc7-47ae-a041-ea2d9dccd749",
+      "effect": "Deny",
+      "notes": "Typical candidates in non-production scopes: ExpressRoute circuits, premium Bastion SKUs, dedicated hosts, HSM. Pair with an exemption process."
+    },
+    {
+      "guardrail_id": "AZPG-06",
+      "title": "Restrict storage accounts to cost-appropriate SKUs",
+      "related_rules": ["AZFO-009", "AZFO-010"],
+      "policy": "Allowed storage account SKUs (built-in)",
+      "policy_definition_id": "7433c107-6db4-4ad1-b57a-a76dce0154a1",
+      "effect": "Deny",
+      "notes": "Block premium/GZRS SKUs in scopes that don't need them; dev/test rarely needs anything beyond Standard_LRS."
+    },
+    {
+      "guardrail_id": "AZPG-07",
+      "title": "Audit unattached managed disks and orphaned public IPs",
+      "related_rules": ["AZFO-005", "AZFO-007"],
+      "policy": "custom",
+      "policy_definition_id": null,
+      "effect": "Audit",
+      "custom_policy_hint": "Audit policy over Microsoft.Compute/disks where properties.diskState equals 'Unattached', and Microsoft.Network/publicIPAddresses where properties.ipConfiguration is null; surface via policy compliance dashboard and feed a scheduled cleanup workflow.",
+      "notes": "No built-in exists; a small custom definition makes orphan drift visible continuously instead of per-assessment."
+    },
+    {
+      "guardrail_id": "AZPG-08",
+      "title": "Enforce Log Analytics daily cap and retention limits",
+      "related_rules": ["AZFO-021", "AZFO-022", "AZFO-028"],
+      "policy": "custom",
+      "policy_definition_id": null,
+      "effect": "Audit",
+      "custom_policy_hint": "Audit Microsoft.OperationalInsights/workspaces where properties.workspaceCapping.dailyQuotaGb equals -1 or properties.retentionInDays greater than <your standard, e.g. 90>; optionally Modify to set the cap on non-production workspaces.",
+      "notes": "Caps act as a circuit breaker against runaway log ingestion — the most common silent cost grower."
+    },
+    {
+      "guardrail_id": "AZPG-09",
+      "title": "Audit VMs/SQL not using Azure Hybrid Benefit",
+      "related_rules": ["AZFO-004", "AZFO-020"],
+      "policy": "custom",
+      "policy_definition_id": null,
+      "effect": "Audit",
+      "custom_policy_hint": "Audit Microsoft.Compute/virtualMachines where storageProfile.osDisk.osType equals 'Windows' and licenseType not in ('Windows_Server','Windows_Client'); similar audit on Microsoft.Sql resources where licenseType equals 'LicenseIncluded'.",
+      "notes": "Only meaningful if the organization actually holds eligible licenses — confirm with licensing before assigning."
+    },
+    {
+      "guardrail_id": "AZPG-10",
+      "title": "Require budgets on every subscription",
+      "related_rules": ["AZFO-017"],
+      "policy": "Deploy a default budget (built-in, deployIfNotExists)",
+      "policy_definition_id": "cd8dc879-a2ae-43c3-8211-1877c5755064",
+      "effect": "DeployIfNotExists",
+      "notes": "Assign at management-group scope so every new subscription gets a budget with action-group alerts automatically. Verify the GUID against your cloud's built-in catalog before assigning (az policy definition list --query \"[?contains(displayName,'budget')]\")."
+    }
+  ]
+}

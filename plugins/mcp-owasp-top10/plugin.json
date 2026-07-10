@@ -1,0 +1,6 @@
+{
+  "name": "mcp-owasp-top10",
+  "description": "Azure security guidance for the OWASP MCP Top 10, providing hardening and investigation runbooks for securing Model Context Protocol servers on Azure.",
+  "license": "MIT",
+  "skills": ["skills/"]
+}
