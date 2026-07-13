@@ -4,14 +4,19 @@
     "name": "CognizantCIS"
   },
   "metadata": {
-    "description": "Security, FinOps, Governance and Cloud Management plugin marketplace for Azure SRE Agent.",
-    "version": "1.1.0"
+    "description": "Security, reliability, governance, architecture, and FinOps agent plugins for Azure and other cloud platforms.",
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "azure-architecture",
       "description": "Discovers existing Azure resources by scope (subscription, resource group, or tags), renders a professional Azure architecture diagram via the Azure Diagram Builder MCP server, and produces a diagram file (SVG + interactive HTML) plus a PDF report with the diagram and a detailed explanation. Optional WAF validation and cost estimates.",
       "source": "./plugins/azure-architecture"
+    },
+    {
+      "name": "azure-governance",
+      "description": "Azure governance review with actionable insights for platform, landing zone, and standalone subscription scopes. Assesses policy compliance, RBAC, management group hierarchy, tagging, cost optimization, resiliency, monitoring coverage, and security baseline aligned to CAF/ALZ. Uses the open-source Azure MCP Server (read-only, stdio — no hosting required) with az CLI fallback, and produces a scored report with a remediation roadmap.",
+      "source": "./plugins/azure-governance"
     },
     {
       "name": "mcp-owasp-top10",
