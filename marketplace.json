@@ -4,10 +4,15 @@
     "name": "CognizantCIS"
   },
   "metadata": {
-    "description": "Security-focused plugin marketplace for Azure SRE Agent. Bundles operational security skills for MCP hardening (OWASP MCP Top 10) and Azure Cloud Security Posture Management (CSPM) remediation.",
-    "version": "1.0.0"
+    "description": "Security, FinOps, Governance and Cloud Management plugin marketplace for Azure SRE Agent.",
+    "version": "1.1.0"
   },
   "plugins": [
+    {
+      "name": "azure-architecture",
+      "description": "Discovers existing Azure resources by scope (subscription, resource group, or tags), renders a professional Azure architecture diagram via the Azure Diagram Builder MCP server, and produces a diagram file (SVG + interactive HTML) plus a PDF report with the diagram and a detailed explanation. Optional WAF validation and cost estimates.",
+      "source": "./plugins/azure-architecture"
+    },
     {
       "name": "mcp-owasp-top10",
       "description": "Azure security guidance for the OWASP MCP Top 10. Provides investigation and hardening runbooks for securing Model Context Protocol (MCP) servers on Azure, covering token management, authorization, tool poisoning, prompt/intent-flow injection, telemetry, and shadow servers. Based on microsoft/mcp-azure-security-guide.",
