@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "azure-diagram-builder": {
+      "type": "http",
+      "url": "https://azure-diagram-builder.yellowmushroom-f11e57c2.eastus2.azurecontainerapps.io/mcp"
+    }
+  }
+}
