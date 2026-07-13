@@ -1,0 +1,7 @@
+{
+  "name": "azure-governance",
+  "description": "Azure governance review with actionable insights for platform, landing zone, and standalone subscription scopes. Assesses policy compliance, RBAC, management group hierarchy, tagging, cost optimization, resiliency, monitoring, and security posture using the open-source Azure MCP Server (read-only, stdio — no hosting required) plus az CLI, and produces a prioritized remediation report.",
+  "license": "MIT",
+  "skills": ["skills/"],
+  "mcpServers": ".mcp.json"
+}
