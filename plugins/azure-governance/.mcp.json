@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "azure-mcp-governance": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure/mcp@latest",
+        "server",
+        "start",
+        "--read-only",
+        "--namespace",
+        "policy",
+        "--namespace",
+        "role",
+        "--namespace",
+        "advisor",
+        "--namespace",
+        "quota",
+        "--namespace",
+        "resourcehealth",
+        "--namespace",
+        "group",
+        "--namespace",
+        "subscription",
+        "--namespace",
+        "monitor",
+        "--namespace",
+        "extension"
+      ]
+    }
+  }
+}
