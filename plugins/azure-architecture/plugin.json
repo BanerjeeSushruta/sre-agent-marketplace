@@ -1,0 +1,7 @@
+{
+  "name": "azure-architecture",
+  "description": "Discovers existing Azure resources by scope (subscription, resource group, or tags), renders a professional Azure architecture diagram via the Azure Diagram Builder MCP server, and produces a diagram file plus a PDF report with the diagram and a detailed explanation.",
+  "license": "MIT",
+  "skills": ["skills/"],
+  "mcpServers": ".mcp.json"
+}
