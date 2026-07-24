@@ -37,6 +37,11 @@
       "name": "finops",
       "description": "Standalone Azure FinOps best practices validator. It performs subscription, management group, resource group, workload, and resource-level assessments to validate Azure environments against Microsoft FinOps best practices. The skill analyzes cost visibility, resource utilization, governance controls, budgeting, tagging compliance, Azure Advisor recommendations, reservations, savings plans, Azure Hybrid Benefit opportunities, and sustainability metrics to identify waste, optimize cloud spend, and improve financial accountability.",
       "source": "./plugins/finops"
+    },
+    {
+      "name": "pdf-creator",
+      "description": "Pdf creator",
+      "source": "./plugins/pdf-creator"
     }
   ]
 }
