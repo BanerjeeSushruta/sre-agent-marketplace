@@ -1,0 +1,84 @@
+{
+  "document": {
+    "type": "remediation_plan",
+    "title": "Azure SRE Remediation Plan",
+    "subtitle": "Approval-Gated Corrective Actions",
+    "classification": "CONFIDENTIAL - INTERNAL USE ONLY",
+    "reporting_period": "July 2026",
+    "version": "1.0",
+    "generated_by": "Azure SRE Agent",
+    "author": "Azure SRE Platform Team"
+  },
+  "template": {
+    "use_background_images": true,
+    "first_page_background": "templates/Page_1.png",
+    "last_page_background": "templates/Page_2.png",
+    "overlay_cover_content": true,
+    "overlay_closing_content": true,
+    "file_name": "templates/template.docx",
+    "use_first_page_as_cover": true,
+    "use_last_page_as_closing_page": true
+  },
+  "layout": {
+    "mode": "free_flowing",
+    "page_size": "A4",
+    "orientation": "portrait",
+    "generate_toc": true,
+    "clickable_toc": true,
+    "validate_no_overlap": true,
+    "apply_proper_indentation": true,
+    "prevent_word_breaks": true,
+    "format_tables": true,
+    "format_toc": true
+  },
+  "sections": [
+    {
+      "id": "plan-overview",
+      "title": "Plan Overview",
+      "level": 1,
+      "type": "narrative",
+      "content": "This remediation plan records proposed corrective actions and approval status. Execution is not authorized unless explicit approval evidence is recorded."
+    },
+    {
+      "id": "remediation-tracker",
+      "title": "Remediation Tracker",
+      "level": 1,
+      "type": "table",
+      "columns": [
+        "Action ID",
+        "Issue",
+        "Remediation",
+        "Approval Status",
+        "Change Ticket"
+      ],
+      "rows": [
+        [
+          "R-001",
+          "SQL utilization exceeded threshold",
+          "Enable autoscaling review and apply approved SKU change.",
+          "Pending Approval",
+          "TBD"
+        ],
+        [
+          "R-002",
+          "Missing alert action group",
+          "Add production responder group to alert routing.",
+          "Pending Approval",
+          "TBD"
+        ]
+      ]
+    },
+    {
+      "id": "hitl-control",
+      "title": "Human-in-the-Loop Control",
+      "level": 2,
+      "type": "callout",
+      "content": "The Azure SRE Agent must not execute remediation actions directly from this PDF. The PDF provides recommendation and approval evidence only."
+    }
+  ],
+  "output": {
+    "file_name": "azure-sre-remediation-plan.pdf",
+    "include_validation_summary": true,
+    "include_render_preview": true
+  }
+}

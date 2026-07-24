@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/azure-sre-agent-pdf-creation/output.schema.json",
+  "title": "Azure SRE Agent PDF Creation Output",
+  "type": "object",
+  "required": [
+    "status",
+    "pdf_file",
+    "page_count",
+    "layout_validation",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "failed"
+      ]
+    },
+    "pdf_file": {
+      "type": "string"
+    },
+    "page_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "toc_generated": {
+      "type": "boolean"
+    },
+    "toc_clickable": {
+      "type": "boolean"
+    },
+    "cover_page_from_template": {
+      "type": "boolean"
+    },
+    "closing_page_from_template": {
+      "type": "boolean"
+    },
+    "layout_validation": {
+      "type": "object",
+      "properties": {
+        "proper_indentation": {
+          "type": "boolean"
+        },
+        "no_overlap_detected": {
+          "type": "boolean"
+        },
+        "no_text_clipping": {
+          "type": "boolean"
+        },
+        "no_table_overflow": {
+          "type": "boolean"
+        },
+        "no_image_overflow": {
+          "type": "boolean"
+        },
+        "render_validation_successful": {
+          "type": "boolean"
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cover_template_content_overlay": {
+      "type": "boolean"
+    },
+    "closing_template_content_overlay": {
+      "type": "boolean"
+    },
+    "tables_formatted": {
+      "type": "boolean"
+    },
+    "word_breaking_disabled": {
+      "type": "boolean"
+    },
+    "toc_formatted": {
+      "type": "boolean"
+    },
+    "table_fitment_enforced": {
+      "type": "boolean"
+    },
+    "table_column_chunking_enabled": {
+      "type": "boolean"
+    },
+    "no_word_break_fitment_valid": {
+      "type": "boolean"
+    },
+    "template_source_file": {
+      "type": "string"
+    },
+    "template_source_type": {
+      "type": "string",
+      "enum": [
+        "docx",
+        "pdf"
+      ]
+    },
+    "template_runtime_pdf": {
+      "type": "string"
+    },
+    "template_usage_valid": {
+      "type": "boolean"
+    },
+    "template_content_preserved": {
+      "type": "boolean"
+    },
+    "first_and_last_pages_have_content": {
+      "type": "boolean"
+    },
+    "template_preservation_scores": {
+      "type": "object"
+    },
+    "background_images_used": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "cover_page_from_background_image": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "closing_page_from_background_image": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "middle_pages_free_flowing": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "background_usage_valid": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "background_content_preserved": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "first_page_background": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_page_background": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
