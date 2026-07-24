@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "no_word_break_fitment_valid": true,
+  "table_results": [
+    {
+      "section": "Key Findings",
+      "cell_font": 8.4,
+      "header_font": 8.8,
+      "requires_column_chunking": true,
+      "required_width_total_points": 527.27,
+      "content_width_points": 487.28
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}

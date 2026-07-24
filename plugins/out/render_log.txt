@@ -1,0 +1,4 @@
+out/rendered/page-1.png
+out/rendered/page-2.png
+out/rendered/page-3.png
+out/rendered/page-4.png

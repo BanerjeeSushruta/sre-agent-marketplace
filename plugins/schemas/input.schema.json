@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/azure-sre-agent-pdf-creation/input.schema.json",
+  "title": "Azure SRE Agent PDF Creation Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document",
+    "template",
+    "layout",
+    "sections",
+    "output"
+  ],
+  "properties": {
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "title",
+        "classification",
+        "reporting_period",
+        "generated_by",
+        "author"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string",
+          "default": "CONFIDENTIAL - INTERNAL USE ONLY"
+        },
+        "reporting_period": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "generated_by": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "subscription_scope": {
+          "type": "string"
+        }
+      }
+    },
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_name",
+        "use_first_page_as_cover",
+        "use_last_page_as_closing_page",
+        "overlay_cover_content",
+        "overlay_closing_content"
+      ],
+      "properties": {
+        "file_name": {
+          "type": "string",
+          "default": "templates/template.docx",
+          "description": "Path to attached report template in DOCX or PDF format. DOCX is converted to PDF at runtime."
+        },
+        "use_first_page_as_cover": {
+          "type": "boolean",
+          "const": true
+        },
+        "use_last_page_as_closing_page": {
+          "type": "boolean",
+          "const": true
+        },
+        "overlay_cover_content": {
+          "type": "boolean",
+          "const": true,
+          "default": true
+        },
+        "overlay_closing_content": {
+          "type": "boolean",
+          "const": true,
+          "default": true
+        },
+        "use_background_images": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use attached PNG files as first and last page backgrounds."
+        },
+        "first_page_background": {
+          "type": "string",
+          "default": "templates/Page_1.png"
+        },
+        "last_page_background": {
+          "type": "string",
+          "default": "templates/Page_2.png"
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "generate_toc",
+        "clickable_toc",
+        "validate_no_overlap",
+        "apply_proper_indentation",
+        "prevent_word_breaks",
+        "format_tables",
+        "format_toc"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "free_flowing"
+          ]
+        },
+        "page_size": {
+          "type": "string",
+          "enum": [
+            "A4",
+            "LETTER"
+          ],
+          "default": "A4"
+        },
+        "orientation": {
+          "type": "string",
+          "enum": [
+            "portrait",
+            "landscape"
+          ],
+          "default": "portrait"
+        },
+        "generate_toc": {
+          "type": "boolean",
+          "const": true
+        },
+        "clickable_toc": {
+          "type": "boolean",
+          "const": true
+        },
+        "validate_no_overlap": {
+          "type": "boolean",
+          "const": true
+        },
+        "apply_proper_indentation": {
+          "type": "boolean",
+          "const": true
+        },
+        "prevent_word_breaks": {
+          "type": "boolean",
+          "const": true,
+          "default": true
+        },
+        "format_tables": {
+          "type": "boolean",
+          "const": true,
+          "default": true
+        },
+        "format_toc": {
+          "type": "boolean",
+          "const": true,
+          "default": true
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "title",
+          "level",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "narrative",
+              "bullets",
+              "numbered",
+              "table",
+              "callout",
+              "code",
+              "appendix"
+            ]
+          },
+          "content": {},
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array"
+            }
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_name"
+      ],
+      "properties": {
+        "file_name": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_.-]+\\.pdf$"
+        },
+        "include_validation_summary": {
+          "type": "boolean",
+          "default": true
+        },
+        "include_render_preview": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
+}

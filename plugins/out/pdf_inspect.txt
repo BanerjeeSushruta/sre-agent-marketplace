@@ -1,0 +1,27 @@
+PDF: out/sample_sre_assessment_png_background.pdf
+Pages: 4
+Encrypted: False
+Page sizes (pt, rounded):
+  - 595 x 842 (2 page(s))
+  - 960 x 540 (2 page(s))
+Metadata:
+  /Author: Azure SRE Platform Team
+  /Creator: Azure SRE Agent PDF Creation Skill
+  /Producer: Azure SRE Agent PDF Creation Skill
+  /Subject: Azure SRE PDF generated with PNG first/last backgrounds, formatted TOC, formatted tables, free-flowing body, and content overlays
+  /Title: Azure SRE Agent - Reliability Assessment Report
+Outline items: 0
+Form fields: 0
+Attachments: 0
+Annotations: 4
+
+Fonts (pdffonts, first 25 lines):
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+Helvetica                            Type 1            WinAnsi          no  no  no       7  0
+Helvetica-Bold                       Type 1            WinAnsi          no  no  no       8  0
+Helvetica                            Type 1            WinAnsi          no  no  no      15  0
+Helvetica-Bold                       Type 1            WinAnsi          no  no  no      16  0
+Helvetica-Oblique                    Type 1            WinAnsi          no  no  no      17  0
+Helvetica                            Type 1            WinAnsi          no  no  no      26  0
+Helvetica-Bold                       Type 1            WinAnsi          no  no  no      27  0

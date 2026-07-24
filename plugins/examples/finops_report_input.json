@@ -1,0 +1,77 @@
+{
+  "document": {
+    "type": "azure_finops_report",
+    "title": "Azure FinOps Validation Report",
+    "subtitle": "Cost Optimization and Governance Review",
+    "classification": "CONFIDENTIAL - INTERNAL USE ONLY",
+    "reporting_period": "July 2026",
+    "version": "1.0",
+    "generated_by": "Azure SRE Agent",
+    "author": "Azure SRE Platform Team"
+  },
+  "template": {
+    "use_background_images": true,
+    "first_page_background": "templates/Page_1.png",
+    "last_page_background": "templates/Page_2.png",
+    "overlay_cover_content": true,
+    "overlay_closing_content": true,
+    "file_name": "templates/template.docx",
+    "use_first_page_as_cover": true,
+    "use_last_page_as_closing_page": true
+  },
+  "layout": {
+    "mode": "free_flowing",
+    "page_size": "A4",
+    "orientation": "portrait",
+    "generate_toc": true,
+    "clickable_toc": true,
+    "validate_no_overlap": true,
+    "apply_proper_indentation": true,
+    "prevent_word_breaks": true,
+    "format_tables": true,
+    "format_toc": true
+  },
+  "sections": [
+    {
+      "id": "summary",
+      "title": "Summary",
+      "level": 1,
+      "type": "narrative",
+      "content": "This sample FinOps report summarizes Azure cost optimization opportunities, tagging readiness, and resource right-sizing recommendations."
+    },
+    {
+      "id": "optimization-findings",
+      "title": "Optimization Findings",
+      "level": 1,
+      "type": "table",
+      "columns": [
+        "ID",
+        "Service",
+        "Finding",
+        "Potential Action",
+        "Priority"
+      ],
+      "rows": [
+        [
+          "C-001",
+          "Azure VM",
+          "Underutilized compute instances detected.",
+          "Review rightsizing recommendation.",
+          "High"
+        ],
+        [
+          "C-002",
+          "Azure Storage",
+          "Older snapshots retained beyond policy.",
+          "Review retention and cleanup process.",
+          "Medium"
+        ]
+      ]
+    }
+  ],
+  "output": {
+    "file_name": "azure-finops-validation-report.pdf",
+    "include_validation_summary": true,
+    "include_render_preview": true
+  }
+}
