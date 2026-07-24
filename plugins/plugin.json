@@ -1,6 +1,0 @@
-{
-  "name": "pdf-creator",
-  "description": "PDF document creator skill.",
-  "license": "MIT",
-  "skills": ["skills/"]
-}
